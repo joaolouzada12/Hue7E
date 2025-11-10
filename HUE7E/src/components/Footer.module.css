@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  color: #1E1E1E;
+}
+
+.socials {
+  margin-bottom: 8px;
+}
+
+.socials a {
+  margin: 0 8px;
+  color: #1E1E1E;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #cfd8dc; 
+}
+
+p {
+  margin: 0;
+}

@@ -37,7 +37,7 @@ export default function NavbarFloating() {
             <a href="#contact" className={styles.link}>Contato</a>
           </div>
         </div>
-
+        
         <button
           className={styles.menuButton}
           aria-label="Toggle menu"

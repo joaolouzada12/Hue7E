@@ -1,7 +1,7 @@
 .navbar {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  top: 4rem;
+  left: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,18 +50,38 @@
 }
 
 .link {
+  position: relative;
   color: #070707;
   text-decoration: none;
-  font-size: 0.95rem;
-  padding: 0.35rem 0.5rem;
-  border-radius: 6px;
-  transition: color 200ms ease, background 200ms ease, transform 150ms ease;
+  font-size: 1.1rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+  transition: all 0.4s ease;
+}
+
+.link:hover::before {
+  left: 100%;
 }
 
 .link:hover {
-  color: #3e3e45; 
-  transform: translateY(-1px);
+  color: #000;
+  background: rgba(0, 0, 0, 0.08);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
+
 
 @media (min-width: 640px) {
   .linksDesktop { display: flex; }
@@ -74,10 +94,17 @@
   width: 40px;
   height: 40px;
   background: transparent;
-  border: none;
+  border: 2px solid transparent;
+  border-radius: 10px;
   cursor: pointer;
-  padding: 0;
   color: #070707;
+  transition: all 0.3s ease;
+}
+
+.menuButton:hover {
+  border-color: #070707;
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
 }
 
 .hamburger {
@@ -117,8 +144,8 @@
 
 .mobileMenu {
   position: fixed;
-  top: 4.6rem; 
-  left: 1rem;
+  top: 6.6rem; 
+  left: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
