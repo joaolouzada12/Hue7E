@@ -1,0 +1,54 @@
+:root {
+  --bg-main: #050510; 
+  --accent: #00aaff; 
+  --accent-light: #33cfff;
+  --text-main: #f2f2f2;
+  --text-secondary: #a0b4c0;
+  --card-bg: rgba(15, 25, 35, 0.6);
+  --card-border: rgba(0, 170, 255, 0.2);
+  --shadow-glow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  background: transparent !important; 
+}
+
+section,
+nav,
+footer {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+
+section {
+  margin: 0;
+  padding: 0;
+  position: relative; 
+  z-index: 1;
+}
+.particles-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+}
+
+

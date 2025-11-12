@@ -34,7 +34,8 @@ export default function NavbarFloating() {
           <div className={styles.linksDesktop}>
             <a href="#home" className={styles.link}>Home</a>
             <a href="#about" className={styles.link}>Sobre</a>
-            <a href="#contact" className={styles.link}>Contato</a>
+            <a href="#services" className={styles.link}>Serviços</a>
+ 
           </div>
         </div>
         

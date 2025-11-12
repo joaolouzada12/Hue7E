@@ -1,0 +1,95 @@
+.services {
+  width: 100%;
+  position: relative;
+  padding: 120px 10%;
+  color: #1E1E1E; /* cor base do texto */
+  overflow: hidden;
+  background: transparent;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 50px;
+  color: #1E1E1E; /* título escuro */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* sombra suave */
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #6a5af9, #f55a5a);
+  margin: 15px auto 0;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.serviceList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  padding: 25px 20px;
+  transition: all 0.3s ease;
+}
+
+.service:hover {
+  transform: translateY(-6px);
+}
+
+.icon {
+  font-size: 1.9rem;
+  color: #1E1E1E; /* ícones escuros */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.service h3 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #1E1E1E;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.service p {
+  font-size: 0.95rem;
+  color: #2A2A2A;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 900px) {
+  .services {
+    padding: 90px 6%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .service {
+    padding: 20px 15px;
+  }
+}

@@ -1,9 +1,5 @@
 .home {
-  background-color: #EDEDEF;
-  background-image: url('../assets/teclado.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: transparent;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -16,65 +12,51 @@
 }
 
 .content {
-  color: #1E1E1E;
-  background-color: rgba(237, 237, 237, 0.7);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.155);
   max-width: 600px;
-  opacity: 0;
   animation: fadeInUp 1s ease forwards 0.3s;
 }
 
 .content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  color: #0f172a; 
 }
 
 .content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  color: #334155;
 }
 
 .learnMore {
-  background: linear-gradient(135deg, #1E1E1E, #444);
-  color: #fff;
+  background: #0f172a;
+  color: #f9fafb;
   border: none;
-  padding: 15px 40px;
+  padding: 14px 38px;
   font-size: 1.1rem;
   cursor: pointer;
   border-radius: 10px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   letter-spacing: 0.5px;
-}
-
-.learnMore {
-  background: linear-gradient(135deg, #1E1E1E, #444);
-  color: #fff;
-  border: none;
-  padding: 15px 40px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 .learnMore:hover {
-  background: linear-gradient(135deg, #3a3a3a, #000);
-  transform: scale(1.08);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
-  color: #f0f0f0;
+  background: #1e293b;
+  transform: scale(1.05);
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeInUp {
@@ -89,13 +71,7 @@
 }
 
 @media (max-width: 768px) {
-  .content h1 {
-    font-size: 2rem;
-  }
-  .content p {
-    font-size: 1rem;
-  }
-  .content {
-    padding: 20px;
-  }
+  .content h1 { font-size: 2rem; }
+  .content p { font-size: 1rem; }
+  .content { padding: 25px; }
 }
