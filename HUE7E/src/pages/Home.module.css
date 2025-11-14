@@ -1,3 +1,16 @@
+:root {
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+  --border-overlay: rgba(255, 255, 255, 0.2);
+  --shadow-overlay: rgba(0, 0, 0, 0.155);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --button-bg: #0f172a;
+  --button-hover: #1e293b;
+  --button-text: #f9fafb;
+  --border-radius: 16px;
+  --button-radius: 10px;
+  --transition: all 0.3s ease;
+}
 .home {
   background: transparent;
   width: 100%;
@@ -12,48 +25,60 @@
 }
 
 .content {
-  color: #fff;
+  color: var(--text-primary);
+  background: var(--bg-overlay);
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 30px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.155);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-overlay);
+  box-shadow: 0 8px 32px var(--shadow-overlay);
   max-width: 600px;
   animation: fadeInUp 1s ease forwards 0.3s;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.content:focus-within {
+  outline-color: var(--button-bg);
 }
 
 .content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #0f172a; 
+  color: var(--text-primary);
 }
 
 .content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #334155;
+  color: var(--text-secondary);
 }
-
 .learnMore {
-  background: #0f172a;
-  color: #f9fafb;
+  background: var(--button-bg);
+  color: var(--button-text);
   border: none;
   padding: 14px 38px;
   font-size: 1.1rem;
   cursor: pointer;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  border-radius: var(--button-radius);
+  transition: var(--transition);
   letter-spacing: 0.5px;
   font-weight: 500;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
-.learnMore:hover {
-  background: #1e293b;
+.learnMore:focus {
+  outline-color: var(--button-hover);
+}
+
+.learnMore:hover,
+.learnMore:focus {
+  background: var(--button-hover);
   transform: scale(1.05);
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -69,9 +94,30 @@
     transform: translateY(0);
   }
 }
-
 @media (max-width: 768px) {
-  .content h1 { font-size: 2rem; }
-  .content p { font-size: 1rem; }
-  .content { padding: 25px; }
+  .content h1 { 
+    font-size: 2rem; 
+  }
+  .content p { 
+    font-size: 1rem; 
+  }
+  .content { 
+    padding: 25px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 { 
+    font-size: 1.8rem; 
+  }
+  .content p { 
+    font-size: 0.95rem; 
+  }
+  .content { 
+    padding: 20px; 
+  }
+  .learnMore {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
 }

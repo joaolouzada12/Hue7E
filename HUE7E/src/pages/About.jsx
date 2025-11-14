@@ -1,72 +1,57 @@
-import React from "react";
-import { FaPaintBrush, FaMicrochip, FaLightbulb, FaRocket } from "react-icons/fa";
+import { useState } from "react"; 
 import styles from "./About.module.css";
+import { FaPaintBrush, FaMicrochip, FaLightbulb } from "react-icons/fa";
 
-function About() {
+export default function About() {
+  const [activeIndex, setActiveIndex] = useState(null); 
+
+  const items = [
+    {
+      title: "Design",
+      icon: <FaPaintBrush />,
+      text: "Criamos interfaces modernas, simples e claras, focadas na experiência do usuário."
+    },
+    {
+      title: "Tecnologia",
+      icon: <FaMicrochip />,
+      text: "Usamos ferramentas atuais para garantir performance e estabilidade."
+    },
+    {
+      title: "Inovação",
+      icon: <FaLightbulb />,
+      text: "Buscamos soluções eficientes e ideias novas para cada projeto."
+    }
+  ];
+
+  const toggleItem = (index) => {
+    setActiveIndex(activeIndex === index ? null : index); 
+  };
+
   return (
-    <section className={styles.about}>
-      <div className={styles.container}>
-        <h2>Nossa Essência</h2>
-        <div className={styles.cards}>
-          <div className={styles.card}>
-            <div className={styles.inner}>
-              <div className={styles.front}>
-                <h3><FaPaintBrush className={styles.icon}/> Design</h3>
-              </div>
-              <div className={styles.back}>
-                <p>
-                  Criamos interfaces modernas e elegantes, com foco na experiência
-                  do usuário e na harmonia visual de cada detalhe.
-                </p>
-              </div>
-            </div>
-          </div>
+    <section className={styles.about} aria-labelledby="about-title">
+      <h2 id="about-title" className={styles.title}>Sobre nós</h2>
 
-          <div className={styles.card}>
-            <div className={styles.inner}>
-              <div className={styles.front}>
-                <h3><FaMicrochip className={styles.icon}/> Tecnologia</h3>
-              </div>
-              <div className={styles.back}>
-                <p>
-                  Utilizamos tecnologias atuais e eficientes para garantir
-                  performance, estabilidade e compatibilidade em todas as plataformas.
-                </p>
-              </div>
+      <div className={styles.grid}>
+        {items.map((item, i) => (
+          <div 
+            className={`${styles.item} ${activeIndex === i ? styles.active : ''}`} 
+            key={i}
+            onClick={() => toggleItem(i)} 
+            role="button" 
+            tabIndex={0} 
+            onKeyDown={(e) => { if (e.key === 'Enter') toggleItem(i); }} 
+            aria-expanded={activeIndex === i} 
+            aria-label={`Saiba mais sobre ${item.title}`} 
+          >
+            <div className={styles.header}>
+              <span className={styles.icon} aria-hidden="true">{item.icon}</span>
+              <h3 className={styles.itemTitle}>{item.title}</h3>
             </div>
-          </div>
 
-          <div className={styles.card}>
-            <div className={styles.inner}>
-              <div className={styles.front}>
-                <h3><FaLightbulb className={styles.icon}/> Inovação</h3>
-              </div>
-              <div className={styles.back}>
-                <p>
-                  Buscamos novas ideias e tendências para manter nossos projetos à frente,
-                  unindo criatividade e estratégia.
-                </p>
-              </div>
-            </div>
+            <p className={styles.itemText}>{item.text}</p>
           </div>
-
-          <div className={styles.card}>
-            <div className={styles.inner}>
-              <div className={styles.front}>
-                <h3><FaRocket className={styles.icon}/> Performance</h3>
-              </div>
-              <div className={styles.back}>
-                <p>
-                  Otimizamos cada linha de código para garantir carregamento rápido,
-                  navegação fluida e a melhor experiência possível.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
 }
-
-export default About;

@@ -1,95 +1,152 @@
+:root {
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --text-title: #222;
+  --bg-service: #ffffff;
+  --border-color: #e3e3e3;
+  --border-hover: #b0c4de;
+  --shadow-light: rgba(0, 0, 0, 0.06);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+  --icon-color: #1f4e81;
+  --accent-bg: rgba(31, 78, 129, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 16px;
+  --gap: 30px;
+}
+
 .services {
-  width: 100%;
-  position: relative;
-  padding: 120px 10%;
-  color: #1E1E1E; /* cor base do texto */
-  overflow: hidden;
-  background: transparent;
-}
-
-.overlay {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.title {
-  font-size: 2.4rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 50px;
-  color: #1E1E1E; /* título escuro */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* sombra suave */
-  position: relative;
-}
-
-.title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #6a5af9, #f55a5a);
-  margin: 15px auto 0;
-  border-radius: 2px;
-  opacity: 0.9;
-}
-
-.serviceList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
-
-.service {
+  padding: 100px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 15px;
-  padding: 25px 20px;
-  transition: all 0.3s ease;
+  color: var(--text-primary);
+  background: transparent;
 }
 
-.service:hover {
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 50px;
+  text-align: center;
+  max-width: 600px;
+  animation: fadeIn 1s ease-in 0.2s both;
+}
+
+.grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service {
+  background: var(--bg-service);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 30px 25px;
+  box-shadow: 0 4px 15px var(--shadow-light);
+  transition: var(--transition);
+  cursor: pointer;
+  text-align: center;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.service:focus {
+  outline-color: var(--icon-color);
+}
+
+.service:hover,
+.service.active {
+  box-shadow: 0 8px 25px var(--shadow-hover);
+  border-color: var(--border-hover);
   transform: translateY(-6px);
+  background: var(--accent-bg);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .icon {
-  font-size: 1.9rem;
-  color: #1E1E1E; /* ícones escuros */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  color: var(--icon-color);
+  opacity: 0.8;
+  transition: var(--transition);
 }
 
-.service h3 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: #1E1E1E;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+.service:hover .icon,
+.service.active .icon {
+  transform: scale(1.2) rotate(10deg);
+  opacity: 1;
 }
 
-.service p {
-  font-size: 0.95rem;
-  color: #2A2A2A;
-  line-height: 1.5;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+.serviceTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-title);
+  margin: 0;
 }
 
-@media (max-width: 900px) {
-  .services {
-    padding: 90px 6%;
-  }
+.serviceText {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: var(--transition);
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
 
+.service:hover .serviceText,
+.service.active .serviceText {
+  max-height: 300px;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
   .title {
     font-size: 2rem;
   }
-}
-
-@media (max-width: 600px) {
+  .subtitle {
+    font-size: 1rem;
+  }
   .service {
-    padding: 20px 15px;
+    padding: 25px 20px;
+  }
+  .serviceTitle {
+    font-size: 1.2rem;
   }
 }

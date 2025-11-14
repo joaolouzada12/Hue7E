@@ -1,28 +1,97 @@
+:root {
+  --text-color: #1E1E1E;
+  --hover-color: #cfd8dc;
+  --accent-color: #1f4e81; 
+  --transition: all 0.3s ease;
+  --icon-size: 1.4rem;
+  --gap: 12px;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 15px 0;
+  padding: 20px 0; 
   font-size: 0.9rem;
-  color: #1E1E1E;
+  color: var(--text-color);
+  background: transparent; 
 }
 
 .socials {
-  margin-bottom: 8px;
+  display: flex;
+  gap: var(--gap); 
+  margin-bottom: 10px;
 }
 
-.socials a {
-  margin: 0 8px;
-  color: #1E1E1E;
-  font-size: 1.2rem;
-  transition: 0.3s;
+.socialLink {
+  position: relative;
+  color: var(--text-color);
+  font-size: var(--icon-size);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
-.socials a:hover {
-  color: #cfd8dc; 
+.socialLink:focus {
+  outline-color: var(--accent-color);
 }
 
-p {
+.socialLink:hover {
+  color: var(--hover-color);
+  transform: scale(1.2) rotate(5deg); 
+  background: rgba(31, 78, 129, 0.1); 
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 120%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  pointer-events: none;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--accent-color);
+  }
+}
+
+.socialLink:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px); 
+}
+
+.footer p {
   margin: 0;
+  font-weight: 500;
+}
+@media (max-width: 480px) {
+  .socialLink {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  .socials {
+    gap: 8px;
+  }
 }
